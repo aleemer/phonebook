@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Basic package setup for project",
   "scripts": {
-    "basic": "cross-env NODE_ENV=basic node server.js",
-    "user": "cross-env NODE_ENV=user node server.js",
-    "adv": "cross-env NODE_ENV=adv node server.js"
+    "basicServer": "cross-env NODE_ENV=basic node server.js",
+    "userServer": "cross-env NODE_ENV=user node server.js",
+    "advServer": "cross-env NODE_ENV=adv node server.js"
   },
   "keywords": [],
   "author": "Aleem Tariq",
