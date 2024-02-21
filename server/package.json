@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Basic package setup for project",
+  "scripts": {
+    "dev": "",
+    "basic": "",
+    "user": "",
+    "adv": ""
+  },
+  "keywords": [],
+  "author": "Aleem Tariq",
+  "license": "ISC"
+}
