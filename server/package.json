@@ -3,12 +3,23 @@
   "version": "1.0.0",
   "description": "Basic package setup for project",
   "scripts": {
-    "dev": "",
-    "basic": "",
-    "user": "",
-    "adv": ""
+    "basic": "cross-env NODE_ENV=basic node server.js",
+    "user": "cross-env NODE_ENV=user node server.js",
+    "adv": "cross-env NODE_ENV=adv node server.js"
   },
   "keywords": [],
   "author": "Aleem Tariq",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.3",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  }
 }
