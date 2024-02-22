@@ -2,5 +2,15 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  background: #F5ECCD;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #1a181b;
+  background: #f5eccd;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
 }

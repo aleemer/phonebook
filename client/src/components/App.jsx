@@ -6,10 +6,13 @@ const App = () => {
     { id: 2, name: 'Eric Jandciu', number: '604-213-5621', favorite: true },
     { id: 2, name: 'Greg Wolfgang', number: '778-203-4931', favorite: false },
   ])
-  
+
   return (
     <div>
-      <p>Hello</p>
+      <h1>Phonebook</h1>
+      <h2>favourites</h2>
+      <h2>contacts</h2>
+      <h2>add a contact</h2>
     </div>
   )
 }
