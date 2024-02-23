@@ -1,6 +1,6 @@
 const ContactForm = ({ onAdd }) => {
   return (
-    <form>
+    <form onSubmit={onAdd}>
       <div className="contact-form">
           <div><input placeholder="name" name="name"/></div>
           <div><input placeholder="number" name="number"/></div>

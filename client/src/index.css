@@ -25,13 +25,16 @@ h2 {
 }
 
 .contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin: 0.5rem 1rem 1rem 1rem;
 }
 
 .contact {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 1rem;
   font-size: 1rem;
 }
 
@@ -41,9 +44,4 @@ form {
 
 input {
   padding: 3px;
-}
-
-button {
-  border: 1px solid black;
-  padding: 5px 15px 5px 15px;
 }

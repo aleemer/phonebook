@@ -3,6 +3,12 @@ const Contact = ({ contact, onDelete, onUpdate }) => {
     <div className="contact">
       <div>{contact.name}</div>
       <div>{contact.number}</div>
+      <button onClick={(e) => onDelete(e, contact.id)}>
+        delete
+      </button>
+      <button onClick={(e) => onUpdate(e, contact.id)}>
+        {contact.favourite ? 'unfavourite' : 'favourite'}
+      </button>
     </div>
   )
 }
