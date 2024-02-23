@@ -1,4 +1,4 @@
-const ContactForm = () => {
+const ContactForm = ({ onAdd }) => {
   return (
     <form>
       <div className="contact-form">

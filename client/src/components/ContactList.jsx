@@ -1,4 +1,4 @@
-const Contact = ({ contact }) => {
+const Contact = ({ contact, onDelete, onUpdate }) => {
   return (
     <div className="contact">
       <div>{contact.name}</div>
@@ -7,12 +7,12 @@ const Contact = ({ contact }) => {
   )
 }
 
-const ContactList = ({ contacts, favouriteOnly }) => {
+const ContactList = ({ contacts, favouriteOnly, onDelete, onUpdate }) => {
   return (
     <div className="contact-list">
       {contacts
         .filter(contact => contact.favourite === favouriteOnly)
-        .map(contact => <Contact key={contact.id} contact={contact}/>)}
+        .map(contact => <Contact key={contact.id} contact={contact} onDelete={onDelete} onUpdate={onUpdate} />)}
     </div>
   )
 }
