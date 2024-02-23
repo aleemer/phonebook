@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
  * Component imports
  */
 import ContactList from './ContactList'
+import ContactForm from './ContactForm'
 
 const App = () => {
   const [contacts, setContacts] = useState([
@@ -19,6 +20,7 @@ const App = () => {
       <ContactList contacts={contacts} favouriteOnly={true} />
       <h2>contacts</h2>
       <h2>add a contact</h2>
+      <ContactForm />
     </div>
   )
 }

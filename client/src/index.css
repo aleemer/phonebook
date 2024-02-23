@@ -32,3 +32,12 @@ h2 {
   gap: 10px;
   font-size: 1.25rem;
 }
+
+input {
+  padding: 3px;
+}
+
+button {
+  border: 1px solid black;
+  padding: 5px 15px 5px 15px;
+}
