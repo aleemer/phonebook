@@ -40,12 +40,10 @@ phonebookRouter.get('/:id', async (request, response) => {
  * @returns the newly created person (entry)
  */
 phonebookRouter.post('/', async (request, response) => {
-  // Get body & fields
-  const body = request.body
-  const name = body.name
-  const number = body.number
+  // Get fields
+  const { name, number } = request.body
   // Error handling
-  if (!body || !name || !number) {
+  if (!name || !number) {
     return response.status(400).send({
       error: 'missing content in body'
     })

@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 
 // Person Schema
 const userSchema = new mongoose.Schema({
-  name: String,
-  password: String
+  username: String,
+  passwordHash: String
 })
 
 userSchema.set('toJSON', {
@@ -11,6 +11,8 @@ userSchema.set('toJSON', {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
     delete returnedObject.__v
+    // the password hash should also be deleted
+    delete returnedObject.passwordHash
   }
 })
 
