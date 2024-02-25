@@ -64,7 +64,7 @@ usersRouter.post('/', async (request, response) => {
     username, passwordHash
   })
 
-  // Update phonebook and return resource
+  // Update phonebook and return user (functions as login too!)
   const savedUser = await user.save()
   response.status(201).send(savedUser)
 })
