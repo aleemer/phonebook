@@ -1,4 +1,4 @@
-const Login = ({ onLogin, onCreate, user }) => {
+const LoginForm = ({ onLogin, onCreate, onLogout, user }) => {
   // Handle either button click
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -7,9 +7,8 @@ const Login = ({ onLogin, onCreate, user }) => {
       username: e.target.username.value,
       password: e.target.password.value
     }
-    console.log('user: ', user)
+    // distinguish button clicked
     const clickType = e.nativeEvent.submitter.value
-    
     if (clickType === 'login') {
       onLogin(user)
     } else {
@@ -20,8 +19,9 @@ const Login = ({ onLogin, onCreate, user }) => {
   return (
     <div>
       { user
-      ? <div>
-          <p>{user.username} is logged in </p>
+      ? <div className="username-header">
+            <p><strong>{user.username}</strong> is logged in</p>
+            <button onClick={onLogout}>logout</button>
         </div> 
       : <form onSubmit={handleSubmit}>
           <div><input placeholder="username" name="username"/></div>
@@ -36,4 +36,4 @@ const Login = ({ onLogin, onCreate, user }) => {
   )
 }
 
-export default Login
+export default LoginForm

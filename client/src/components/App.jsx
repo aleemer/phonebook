@@ -12,7 +12,7 @@ import userServices from '../services/user'
  */
 import ContactList from './ContactList'
 import ContactForm from './ContactForm'
-import Login from './Login'
+import LoginForm from './Login'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -79,7 +79,7 @@ const App = () => {
   const handleLogin = (user) => {
     loginServices
       .loginUser(user)
-      .then((response) => console.log(response))
+      .then((response) => setUser(response))
       .catch((error) => console.log(error))
   }
 
@@ -98,7 +98,7 @@ const App = () => {
   const handleCreate = (newUser) => {
     userServices
       .createUser(newUser)
-      .then((response) => console.log(response))
+      .then((response) => setUser(response))
       .catch((error) => console.log(error))
   }
 
@@ -106,17 +106,18 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      { !user 
-      ? ''
-      : '' 
+      <LoginForm onLogin={handleLogin} onCreate={handleCreate} onLogout={handleLogout} user={user}/>
+      { user
+      ? <>
+          <h2>favourites</h2>
+          <ContactList contacts={contacts} favouriteOnly={true} onDelete={handleDelete} onUpdate={handleUpdate} />
+          <h2>contacts</h2>
+          <ContactList contacts={contacts} favouriteOnly={false} onDelete={handleDelete} onUpdate={handleUpdate} />
+          <h2>add a contact</h2>
+          <ContactForm onAdd={handleAdd}/>
+        </>
+      : null
       }
-      <Login onLogin={handleLogin} onCreate={handleCreate}  user={user}/>
-      <h2>favourites</h2>
-      <ContactList contacts={contacts} favouriteOnly={true} onDelete={handleDelete} onUpdate={handleUpdate} />
-      <h2>contacts</h2>
-      <ContactList contacts={contacts} favouriteOnly={false} onDelete={handleDelete} onUpdate={handleUpdate} />
-      <h2>add a contact</h2>
-      <ContactForm onAdd={handleAdd}/>
     </div>
   )
 }
