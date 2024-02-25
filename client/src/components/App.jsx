@@ -4,17 +4,18 @@ import { useState, useEffect } from 'react'
  * Import services
  */
 import phonebookServices from '../services/phonebook'
+import loginServices from '../services/login'
+import userServices from '../services/user'
 
 /**
  * Component imports
  */
 import ContactList from './ContactList'
 import ContactForm from './ContactForm'
+import LoginForm from './LoginForm'
 
 const App = () => {
   const [contacts, setContacts] = useState([])
-
-  console.log(contacts)
 
   useEffect(() => {
     syncData()
@@ -70,9 +71,34 @@ const App = () => {
       .then(() => syncData())
   }
 
+  /**
+   * Handles login, returns user if correct login, error otherwise
+   * @param {Object} user 
+   */
+  const handleLogin = (user) => {
+    loginServices
+      .loginUser(user)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error))
+  }
+
+  /**
+   * Handles user creation, returns user if correct, error otherwise
+   * (also performs login indirectly)
+   * @param {Object} newUser 
+   */
+  const handleCreate = (newUser) => {
+    userServices
+      .createUser(newUser)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error))
+  }
+
+
   return (
     <div>
       <h1>Phonebook</h1>
+      <LoginForm onLogin={handleLogin} onCreate={handleCreate}/>
       <h2>favourites</h2>
       <ContactList contacts={contacts} favouriteOnly={true} onDelete={handleDelete} onUpdate={handleUpdate} />
       <h2>contacts</h2>

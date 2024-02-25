@@ -4,7 +4,7 @@ const ContactForm = ({ onAdd }) => {
       <div className="contact-form">
           <div><input placeholder="name" name="name"/></div>
           <div><input placeholder="number" name="number"/></div>
-          <button>add</button>
+          <button type="submit">add</button>
         </div>
     </form>
   )
