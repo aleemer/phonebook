@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import phonebookServices from '../services/phonebook'
 import loginServices from '../services/login'
 import userServices from '../services/user'
+import browserServices from '../services/browser'
 
 /**
  * Component imports
@@ -18,6 +19,15 @@ const App = () => {
   const [user, setUser] = useState(null)
   const [contacts, setContacts] = useState([])
 
+  // Perform local storage check to auto-login on first load
+  useEffect(() => {
+    const storedUser = browserServices.getUser()
+    if (storedUser) {
+      setUser(storedUser)
+    }
+  }, [])
+
+  // Syncs data when user logs in
   useEffect(() => {
     if (user) {
       syncData()
@@ -81,7 +91,10 @@ const App = () => {
   const handleLogin = (user) => {
     loginServices
       .loginUser(user)
-      .then((response) => setUser(response))
+      .then((response) => {
+        setUser(response)
+        browserServices.storeUser(response)
+      })
       .catch((error) => console.log(error))
   }
 
@@ -89,6 +102,7 @@ const App = () => {
    * Handles logout, sets user to null
    */
   const handleLogout = () => {
+    browserServices.removeUser()
     setUser(null)
   }
 
@@ -100,7 +114,10 @@ const App = () => {
   const handleCreate = (newUser) => {
     userServices
       .createUser(newUser)
-      .then((response) => setUser(response))
+      .then((response) => {
+        setUser(response)
+        browserServices.storeUser(response)
+      })
       .catch((error) => console.log(error))
   }
 
