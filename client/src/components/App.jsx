@@ -12,9 +12,10 @@ import userServices from '../services/user'
  */
 import ContactList from './ContactList'
 import ContactForm from './ContactForm'
-import LoginForm from './LoginForm'
+import Login from './Login'
 
 const App = () => {
+  const [user, setUser] = useState(null)
   const [contacts, setContacts] = useState([])
 
   useEffect(() => {
@@ -83,6 +84,13 @@ const App = () => {
   }
 
   /**
+   * Handles logout, sets user to null
+   */
+  const handleLogout = () => {
+    setUser(null)
+  }
+
+  /**
    * Handles user creation, returns user if correct, error otherwise
    * (also performs login indirectly)
    * @param {Object} newUser 
@@ -98,7 +106,11 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <LoginForm onLogin={handleLogin} onCreate={handleCreate}/>
+      { !user 
+      ? ''
+      : '' 
+      }
+      <Login onLogin={handleLogin} onCreate={handleCreate}  user={user}/>
       <h2>favourites</h2>
       <ContactList contacts={contacts} favouriteOnly={true} onDelete={handleDelete} onUpdate={handleUpdate} />
       <h2>contacts</h2>
