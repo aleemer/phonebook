@@ -19,7 +19,7 @@ const App = () => {
   const [user, setUser] = useState(null)
   const [contacts, setContacts] = useState([])
 
-  // Perform local storage check to auto-login on first load
+  // Perform local storage check to auto-login on reload (first load)
   useEffect(() => {
     const storedUser = browserServices.getUser()
     if (storedUser) {
@@ -27,7 +27,7 @@ const App = () => {
     }
   }, [])
 
-  // Syncs data when user logs in
+  // Syncs data only when user logs in
   useEffect(() => {
     if (user) {
       syncData()
