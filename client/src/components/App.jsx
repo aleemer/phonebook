@@ -13,7 +13,7 @@ import browserServices from '../services/browser'
  */
 import ContactList from './ContactList'
 import ContactForm from './ContactForm'
-import LoginForm from './Login'
+import LoginForm from './LoginForm'
 
 const App = () => {
   const [user, setUser] = useState(null)
