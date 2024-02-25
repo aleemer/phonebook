@@ -44,7 +44,7 @@ usersRouter.post('/', async (request, response) => {
   // Get fields
   const { username, password } = request.body
   // Error handling
-  if (!username || ! password) {
+  if (!username || !password) {
     return response.status(400).send({
       error: 'missing username or password'
     })
