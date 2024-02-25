@@ -19,8 +19,10 @@ const App = () => {
   const [contacts, setContacts] = useState([])
 
   useEffect(() => {
-    syncData()
-  }, [])
+    if (user) {
+      syncData()
+    }
+  }, [user])
 
   /**
    * 
